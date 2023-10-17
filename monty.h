@@ -1,6 +1,8 @@
 #ifndef MONTY_H_
 #define MONTY_H_
 
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -34,4 +36,6 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/*Function prototypes*/
+void free_stack_memory(stack_t **stack);
 #endif
