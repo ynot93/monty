@@ -3,11 +3,11 @@
 /**
  * _push - Pushes an element to the stack.
  * @stack: Double pointer to the top of the stack.
- * @line_num: The line number in the Monty file.
+ * @line_number: The line number in the Monty file.
  *
  * Return: Void
  */
-void _push(stack_t **stack, unsigned int line_num)
+void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 	char *arg;
@@ -16,7 +16,7 @@ void _push(stack_t **stack, unsigned int line_num)
 
 	if (arg == NULL || !is_int(arg))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_num);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
