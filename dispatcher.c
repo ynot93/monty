@@ -26,6 +26,10 @@ void dispatch(stack_t **stack, const char *opcode, unsigned int line_number)
 			if (strcmp(opcode, "swap") == 0)
 				_swap(stack, line_number);
 			break;
+		case 'a':
+			if (strcmp(opcode, "add") == 0)
+				_add(stack, line_number);
+			break;
 		default:
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 			free_stack_memory(stack);
