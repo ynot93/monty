@@ -40,4 +40,5 @@ typedef struct instruction_s
 void free_stack_memory(stack_t **stack);
 void _push(stack_t **stack, char *input, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
 #endif
