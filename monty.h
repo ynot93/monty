@@ -44,8 +44,8 @@ int is_int(const char *str);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
-void dispatch(stack_t **stack, const char *opcode, unsigned int line_num);
-void _pint(stack_t **stack, unsigned int line_num);
-void _pop(stack_t **stack, unsigned int line_num);
+void dispatch(stack_t **stack, const char *opcode, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
 
 #endif

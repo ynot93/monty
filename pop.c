@@ -3,17 +3,17 @@
 /**
  * _pop - Prints value at the top of the stack.
  * @stack: Pointer to the stack.
- * @line_num: Line number of the Monty bytecode.
+ * @line_number: Line number of the Monty bytecode.
  *
  * Return: Nothing.
  */
-void _pop(stack_t **stack, unsigned int line_num)
+void _pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_num);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 

@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	size_t len = 0;
 	ssize_t read;
 	stack_t *stack = NULL;
-	unsigned int line_num = 0;
+	unsigned int line_number = 0;
 	char *opcode;
 
 	if (argc != 2)
@@ -29,12 +29,12 @@ int main(int argc, char **argv)
 	}
 	while ((read = getline(&line, &len, file)) != -1)
 	{
-		line_num++;
+		line_number++;
 		opcode = strtok(line, " \t\n");
 
 		if (opcode != NULL)
 		{
-			dispatch(&stack, opcode, line_num);
+			dispatch(&stack, opcode, line_number);
 		}
 	}
 	free(line);
