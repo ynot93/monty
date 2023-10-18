@@ -17,6 +17,14 @@ void dispatch(stack_t **stack, const char *opcode, unsigned int line_num)
 				_push(stack, line_num);
 			else if (strcmp(opcode, "pall") == 0)
 				_pall(stack, line_num);
+			else if (strcmp(opcode, "pint") == 0)
+				_pint(stack, line_num);
+			else if (strcmp(opcode, "pop") == 0)
+				_pop(stack, line_num);
+			break;
+		case 's':
+			if (strcmp(opcode, "swap") == 0)
+				_swap(stack, line_num);
 			break;
 		default:
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_num, opcode);

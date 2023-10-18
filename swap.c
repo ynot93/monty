@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /**
  * _swap - Swaps the top two elements of the stack.
  * @stack: A pointer to the stack.
