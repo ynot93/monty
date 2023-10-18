@@ -32,6 +32,8 @@ void dispatch(stack_t **stack, const char *opcode, unsigned int line_number)
 		_div(stack, line_number);
 	else if (strcmp(opcode, "sub") == 0)
 		_sub(stack, line_number);
+	else if (strcmp(opcode, "pchar") == 0)
+		_pchar(stack, line_number);
 	else
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
