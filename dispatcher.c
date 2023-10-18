@@ -30,6 +30,9 @@ void dispatch(stack_t **stack, const char *opcode, unsigned int line_number)
 			if (strcmp(opcode, "add") == 0)
 				_add(stack, line_number);
 			break;
+		case 'n':
+			if (strcmp(opcode, "nop") == 0)
+				_nop(stack, line_number);
 		default:
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 			free_stack_memory(stack);
