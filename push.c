@@ -3,47 +3,59 @@
 /**
  * _push - Pushes an element to the stack.
  * @stack: Double pointer to the top of the stack.
- * @input: The string containing the value to push.
- * @line_number: The line number in the Monty file.
+ * @line_num: The line number in the Monty file.
  *
  * Return: Void
  */
-void _push(stack_t **stack, char *input, unsigned int line_number)
+void _push(stack_t **stack, unsigned int line_num)
 {
 	stack_t *new_node;
-	int i;
+	char *arg;
 
-	if (input == NULL)
+	arg = strtok(NULL, " \t\n");
+
+	if (arg == NULL || !is_int(arg))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-	i = 0;
-
-	while (input[i])
-	{
-		if (input[i] == '-' && i == 0)
-		{
-			i++;
-			continue;
-		}
-		if (input[i] < '0' || input[i] > '9')
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
+	
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: Can't malloc\n");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = atoi(input);
+	new_node->n = atoi(arg);
 	new_node->prev = NULL;
 	new_node->next = *stack;
 	if (*stack != NULL)
 		(*stack)->prev = new_node;
 	*stack = new_node;
+}
+
+/**
+ * is_int - Checks if string is an integer.
+ * @str: Strint to be checked.
+ *
+ * Return: 1 if integer, 0 if not.
+ */
+int is_int(const char *str)
+{
+	if (!str || *str == '\0')
+	{
+		return (0);
+	}
+
+	if (*str == '+' || *str == '-')
+	{
+		str++;
+	}
+
+	for (; *str != '\0'; str++)
+	{
+		if (!isdigit(*str))
+			return (0);
+	}
+	return (1);
 }

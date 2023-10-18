@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 	ssize_t read;
 	stack_t *stack = NULL;
 	unsigned int line_num = 0;
+	char *opcode;
 
 	if (argc != 2)
 	{
@@ -29,7 +30,12 @@ int main(int argc, char **argv)
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_num++;
-		/*parse the line, and execute the opcode*/
+		opcode = strtok(line, " \t\n");
+
+		if (opcode != NULL)
+		{
+			dispatch(&stack, opcode, line_num);
+		}
 	}
 	free(line);
 	fclose(file);
