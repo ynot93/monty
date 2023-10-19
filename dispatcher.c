@@ -36,6 +36,8 @@ void dispatch(stack_t **stack, const char *opcode, unsigned int line_number)
 		_pchar(stack, line_number);
 	else if (strcmp(opcode, "pstr") == 0)
 		_pstr(stack, line_number);
+	else if (strcmp(opcode, "rotl") == 0)
+		_rotl(stack, line_number);
 	else if (strcmp(opcode, "rotr") == 0)
 		_rotr(stack, line_number);
 	else if (strcmp(opcode, "stack") == 0)
