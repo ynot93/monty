@@ -1,5 +1,8 @@
 #include "monty.h"
 #include <stdio.h>
+
+monty_mode_t monty_mode = STACK;
+
 /**
  * main -Entry pint of the program
  * @argc: Number of arguments

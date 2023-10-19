@@ -8,6 +8,9 @@
 #include <string.h>
 #include <ctype.h>
 
+typedef enum { STACK, QUEUE } monty_mode_t;
+extern monty_mode_t monty_mode;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -55,4 +58,6 @@ void _mul(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void _pchar(stack_t **stack, unsigned int line_number);
 void _rotr(stack_t **stack, unsigned int line_number);
+void _queue(stack_t **stack, unsigned int line_number);
+void _stack(stack_t **stack, unsigned int line_number);
 #endif
