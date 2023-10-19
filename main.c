@@ -34,7 +34,8 @@ int main(int argc, char **argv)
 	{
 		line_number++;
 		opcode = strtok(line, " \t\n");
-
+		if (opcode != NULL && opcode[0] == '#')
+			continue;
 		if (opcode != NULL)
 		{
 			dispatch(&stack, opcode, line_number);
