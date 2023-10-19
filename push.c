@@ -11,6 +11,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 	char *arg;
+	int n;
 
 	arg = strtok(NULL, " \t\n");
 
@@ -19,6 +20,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	n = atoi(arg);
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -26,12 +28,18 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: Can't malloc\n");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = atoi(arg);
-	new_node->prev = NULL;
-	new_node->next = *stack;
-	if (*stack != NULL)
-		(*stack)->prev = new_node;
-	*stack = new_node;
+	new_node->n = n;
+
+	if (monty_mode == STACK)
+	{
+		new_node->prev = NULL;
+		new_node->next = *stack;
+		if (*stack != NULL)
+			(*stack)->prev = new_node;
+		*stack = new_node;
+	}
+	else
+		add_queue(stack, n);
 }
 
 /**
